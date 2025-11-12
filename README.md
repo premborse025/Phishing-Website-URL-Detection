@@ -1,110 +1,83 @@
-🛡️ Phishing URL Detection using Machine Learning
+# Phishing URL Detection 
+![image](https://user-images.githubusercontent.com/79131292/144742825-23367f0f-9e67-4c99-ba1f-b86a187675c9.png)
+![image](https://user-images.githubusercontent.com/79131292/144742785-d183f50a-52d6-4296-a43a-90a1ee3502d8.png)
 
-A Machine Learning-based web application that detects phishing (malicious) URLs by analyzing multiple lexical and domain-based features.
-The project combines Flask, Python, and ML algorithms to provide real-time predictions through a simple and interactive web interface.
+## Table of Content
+  * [Introduction](#introduction)
+  * [Installation](#installation)
+  * [Directory Tree](#directory-tree)
+  * [Result](#result)
+  * [Conclusion](#conclusion)
 
-🚀 Features
 
-🧠 Machine Learning Model: Trained on a labeled dataset of phishing and legitimate URLs.
+## Introduction
 
-🔗 Feature Extraction: Extracts 30+ features (length, dots, prefixes, SSL status, etc.).
+The Internet has become an indispensable part of our life, However, It also has provided opportunities to anonymously perform malicious activities like Phishing. Phishers try to deceive their victims by social engineering or creating mockup websites to steal information such as account ID, username, password from individuals and organizations. Although many methods have been proposed to detect phishing websites, Phishers have evolved their methods to escape from these detection methods. One of the most successful methods for detecting these malicious activities is Machine Learning. This is because most Phishing attacks have some common characteristics which can be identified by machine learning methods. To see project click [here]("/").
 
-🌐 Web App (Flask): Interactive user interface to test URLs instantly.
 
-📊 Accurate Prediction: Uses Scikit-learn classifiers (Random Forest / Logistic Regression).
-
-🎨 Responsive UI: Styled with HTML, CSS for a user-friendly experience.
-
-🧩 Tech Stack
-Category	Technologies
-Programming Language	Python
-Libraries / Frameworks	Flask, Scikit-learn, Pandas, NumPy, Joblib
-Frontend	HTML, CSS
-Development Tools	Jupyter Notebook, VS Code
-Version Control	Git & GitHub
-🗂️ Project Structure
-Phishing-URL-Detection/
-│
-├── app.py                   # Flask web application
-├── feature.py               # Feature extraction logic
-├── Phishing URL Detection.ipynb  # Model training notebook
-├── requirements.txt          # Dependencies
-├── README.md                 # Project documentation
-├── static/
-│   └── styles.css            # Frontend styles
-├── templates/
-│   └── index.html            # Web interface
-└── pickle/
-    └── model.pkl             # Trained model file
-
-⚙️ Installation & Setup
-🖥️ Prerequisites
-
-Ensure you have the following installed:
-
-Python 3.8 or above
-
-pip (Python package manager)
-
-📦 Steps
-# 1. Clone the repository
-git clone https://github.com/<your-username>/Phishing-URL-Detection.git
-cd Phishing-URL-Detection
-
-# 2. (Optional) Create virtual environment
-python -m venv venv
-venv\Scripts\activate   # for Windows
-# or
-source venv/bin/activate  # for Mac/Linux
-
-# 3. Install dependencies
+## Installation
+The Code is written in Python 3.6.10. If you don't have Python installed you can find it [here](https://www.python.org/downloads/). If you are using a lower version of Python you can upgrade using the pip package, ensuring you have the latest version of pip. To install the required packages and libraries, run this command in the project directory after [cloning](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/) the repository:
+```bash
 pip install -r requirements.txt
+```
 
-# 4. Run the Flask app
-python app.py
+## Directory Tree 
+```
+├── pickle
+│   ├── model.pkl
+├── static
+│   ├── styles.css
+├── templates
+│   ├── index.html
+├── Phishing URL Detection.ipynb
+├── Procfile
+├── README.md
+├── app.py
+├── feature.py
+├── phishing.csv
+├── requirements.txt
 
 
-Then open your browser and go to:
-👉 http://127.0.0.1:5000/
+```
 
-📊 Model Training
+## Technologies Used
 
-The model was trained using Phishing URL Detection.ipynb.
-It extracts lexical and domain-based features, then applies ML algorithms such as:
+![](https://forthebadge.com/images/badges/made-with-python.svg)
 
-Random Forest Classifier
+[<img target="_blank" src="https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg" width=200>](https://numpy.org/doc/) [<img target="_blank" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg" width=200>](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)
+[<img target="_blank" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" width=100>](https://matplotlib.org/)
+[<img target="_blank" src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" width=200>](https://scikit-learn.org/stable/) 
+[<img target="_blank" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScq-xocLctL07Jy0tpR_p9w0Q42_rK1aAkNfW6sm3ucjFKWML39aaJPgdhadyCnEiK7vw&usqp=CAU" width=200>](https://flask.palletsprojects.com/en/2.0.x/) 
 
-Decision Tree
+## Result
 
-Logistic Regression
+Accuracy of various model used for URL detection
+<br>
 
-To retrain:
+<br>
 
-Open the Jupyter Notebook.
+||ML Model|	Accuracy|  	f1_score|	Recall|	Precision|
+|---|---|---|---|---|---|
+0|	Gradient Boosting Classifier|	0.974|	0.977|	0.994|	0.986|
+1|	CatBoost Classifier|	        0.972|	0.975|	0.994|	0.989|
+2|	XGBoost Classifier| 	        0.969|	0.973|	0.993|	0.984|
+3|	Multi-layer Perceptron|	        0.969|	0.973|	0.995|	0.981|
+4|	Random Forest|	                0.967|	0.971|	0.993|	0.990|
+5|	Support Vector Machine|	        0.964|	0.968|	0.980|	0.965|
+6|	Decision Tree|      	        0.960|	0.964|	0.991|	0.993|
+7|	K-Nearest Neighbors|        	0.956|	0.961|	0.991|	0.989|
+8|	Logistic Regression|        	0.934|	0.941|	0.943|	0.927|
+9|	Naive Bayes Classifier|     	0.605|	0.454|	0.292|	0.997|
 
-Run all cells.
+Feature importance for Phishing URL Detection 
+<br><br>
+![image](https://user-images.githubusercontent.com/79131292/144603941-19044aae-7d7b-4e9a-88a8-6adfd8626f77.png)
 
-The trained model is saved as pickle/model.pkl.
 
-🧠 How It Works
 
-The user enters a website URL.
 
-The system extracts important features (like URL length, presence of “@”, subdomain count, etc.).
-
-The ML model predicts whether the URL is Phishing or Legitimate.
-
-The result is displayed instantly on the web interface.
-
-⚠️ Note
-
-The trained model (model.pkl) may not be included due to GitHub file size limits.
-You can retrain it using the notebook or download from the release section.
-
-🏆 Project Outcomes
-
-Achieved high accuracy in phishing detection.
-
-Demonstrated integration of Machine Learning + Web Development.
-
-Useful as a cybersecurity tool for identifying suspicious URLs.
+## Conclusion
+1. The final take away form this project is to explore various machine learning models, perform Exploratory Data Analysis on phishing dataset and understanding their features. 
+2. Creating this notebook helped me to learn a lot about the features affecting the models to detect whether URL is safe or not, also I came to know how to tuned model and how they affect the model performance.
+3. The final conclusion on the Phishing dataset is that the some feature like "HTTTPS", "AnchorURL", "WebsiteTraffic" have more importance to classify URL is phishing URL or not. 
+4. Gradient Boosting Classifier currectly classify URL upto 97.4% respective classes and hence reduces the chance of malicious attachments.
